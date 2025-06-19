@@ -1,0 +1,7 @@
+build/
+/unpv13e/build/
+/*.swp
+/*.o
+/*.so
+/*.a
+*.DS_Store

@@ -1,0 +1,5 @@
+add_executable(daytimetcpcli daytimetcpcli.cpp)
+target_link_libraries(daytimetcpcli PRIVATE unp)
+
+add_executable(daytimetcpserver daytimetcpserver.cpp)
+target_link_libraries(daytimetcpserver PRIVATE unp)

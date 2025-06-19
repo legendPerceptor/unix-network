@@ -1,0 +1,30 @@
+name: Build the Unix Network Programming project
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up CMake
+        uses: lukka/get-cmake@latest
+
+      - name: Get the submodule code
+        uses: git submodule update --init --recursive
+
+      - name: Build book's code
+        run: ./build_unpv13e.sh
+
+      - name: Create Build Directory
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --config Release
